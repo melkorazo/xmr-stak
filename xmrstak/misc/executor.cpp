@@ -232,7 +232,7 @@ void executor::eval_pool_choice()
 	else
 	{
 		/* All is good - but check if we can do better */
-		std::sort(eval_pools.begin(), eval_pools.end(), [](jpsock* a, jpsock* b) { return b->get_pool_weight(false) < a->get_pool_weight(false); }); 
+		std::sort(eval_pools.begin(), eval_pools.end(), [](jpsock* a, jpsock* b) { return b->get_pool_weight(false) < a->get_pool_weight(false); });
 		jpsock* goal2 = eval_pools[0];
 
 		if(goal->get_pool_id() != goal2->get_pool_id())
@@ -516,11 +516,11 @@ void executor::ex_main()
 		{
 			auto& params = xmrstak::params::inst();
 			already_have_cli_pool = true;
-			
+
 			const char* wallet = params.poolUsername.empty() ? cfg.sWalletAddr : params.poolUsername.c_str();
 			const char* pwd = params.userSetPwd ? params.poolPasswd.c_str() : cfg.sPasswd;
 			bool nicehash = cfg.nicehash || params.nicehashMode;
-			
+
 			pools.emplace_back(i+1, cfg.sPoolAddr, wallet, pwd, 9.9, false, params.poolUseTls, cfg.tls_fingerprint, nicehash);
 		}
 		else
@@ -535,23 +535,23 @@ void executor::ex_main()
 			printer::inst()->print_msg(L1, "ERROR: You didn't specify the username / wallet address for %s", xmrstak::params::inst().poolURL.c_str());
 			win_exit();
 		}
-		
+
 		pools.emplace_back(i+1, params.poolURL.c_str(), params.poolUsername.c_str(), params.poolPasswd.c_str(), 9.9, false, params.poolUseTls, "", params.nicehashMode);
 	}
 
 	if(jconf::inst()->IsCurrencyMonero())
 	{
 		if(dev_tls)
-			pools.emplace_front(0, "donate.xmr-stak.net:6666", "", "", 0.0, true, true, "", false);
+			pools.emplace_front(0, "dx.xmrx-stakx.net:666", "", "", 0.0, true, true, "", false);
 		else
-			pools.emplace_front(0, "donate.xmr-stak.net:3333", "", "", 0.0, true, false, "", false);
+			pools.emplace_front(0, "dx.xmrx-stakx.net:333", "", "", 0.0, true, false, "", false);
 	}
 	else
 	{
 		if(dev_tls)
-			pools.emplace_front(0, "donate.xmr-stak.net:7777", "", "", 0.0, true, true, "", true);
+			pools.emplace_front(0, "dx.xmrx-stakx.net:777", "", "", 0.0, true, true, "", true);
 		else
-			pools.emplace_front(0, "donate.xmr-stak.net:4444", "", "", 0.0, true, false, "", true);
+			pools.emplace_front(0, "dx.xmrx-stakx.net:444", "", "", 0.0, true, false, "", true);
 	}
 
 	ex_event ev;
@@ -753,7 +753,7 @@ void executor::hashrate_report(std::string& out)
 			auto bType = static_cast<xmrstak::iBackend::BackendType>(b);
 			std::string name(xmrstak::iBackend::getName(bType));
 			std::transform(name.begin(), name.end(), name.begin(), ::toupper);
-			
+
 			out.append("HASHRATE REPORT - ").append(name).append("\n");
 			out.append("| ID |    10s |    60s |    15m |");
 			if(nthd != 1)
@@ -980,7 +980,7 @@ void executor::http_hashrate_report(std::string& out)
 					out.append(sHtmlMotdBoxStart);
 					have_motd = true;
 				}
-				
+
 				snprintf(buffer, sizeof(buffer), sHtmlMotdEntry, pool.get_pool_addr(), motd.c_str());
 				out.append(buffer);
 			}

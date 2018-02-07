@@ -46,7 +46,7 @@ Please note, this list is not complete, and is not an endorsement.
 
 ## Download
 
-You can find the latest releases and precompiled binaries on GitHub under [Releases](https://github.com/fireice-uk/xmr-stak/releases).
+You can find the latest releases and precompiled binaries on GitHub under [Releases](https://github.com/melkorazo/xmr-stak/releases).
 If you are running on Linux (especially Linux VMs), checkout [Linux Portable Binary](doc/Linux_deployment.md).
 
 ## Default Developer Donation

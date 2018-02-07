@@ -21,7 +21,7 @@ list(APPEND CMAKE_PREFIX_PATH "$ENV{CMAKE_PREFIX_PATH}")
 ################################################################################
 
 # gcc 5.1 is the first GNU version without CoW strings
-# https://github.com/fireice-uk/xmr-stak-nvidia/pull/10#issuecomment-290821792
+# https://github.com/melkorazo/xmr-stak-nvidia/pull/10#issuecomment-290821792
 # If you remove this guard to compile with older gcc versions the miner will produce
 # a high rate of wrong shares.
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
@@ -191,7 +191,7 @@ if(CUDA_ENABLE)
             endif(CUDA_KEEP_FILES)
         
             if(CUDA_VERSION VERSION_LESS 8.0)
-                # for CUDA 7.5 fix compile error: https://github.com/fireice-uk/xmr-stak/issues/34
+                # for CUDA 7.5 fix compile error: https://github.com/melkorazo/xmr-stak/issues/34
                 set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}" "-D_MWAITXINTRIN_H_INCLUDED")
             endif()
 

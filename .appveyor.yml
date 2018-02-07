@@ -9,7 +9,7 @@ clone_folder: c:\xmr-stak
 
 install:
   - mkdir c:\xmr-stak-dep
-  - curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip
+  - curl -sL https://github.com/melkorazo/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o xmr-stak-dep.zip
   - 7z x xmr-stak-dep.zip -o"c:\xmr-stak-dep" -y > nul
   - appveyor DownloadFile  https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_windows-exe -FileName cuda_8.0.44_windows.exe
   - cuda_8.0.44_windows.exe -s compiler_8.0 cudart_8.0
